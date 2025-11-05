@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Koleksiyonu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">Video Koleksiyonu</h1>
+            <button id="addVideoBtn" class="btn-primary">Video Ekle</button>
+        </header>
+
+        <main class="main">
+            <!-- Arama Bölümü -->
+            <div class="search-section">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Video ara... (tag, başlık)" class="search-input">
+                    <button id="searchBtn" class="search-btn">Ara</button>
+                </div>
+                <div id="searchTags" class="search-tags"></div>
+            </div>
+
+            <!-- Video Grid -->
+            <div id="videoGrid" class="video-grid">
+                <div class="empty-state">
+                    <p>Henüz video eklenmemiş. İlk videoyu eklemek için "Video Ekle" butonuna tıklayın.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Video Ekleme Modal -->
+    <div id="addVideoModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Yeni Video Ekle</h2>
+                <button id="closeModal" class="close-btn">&times;</button>
+            </div>
+            <form id="addVideoForm" class="video-form">
+                <div class="form-group">
+                    <label for="videoTitle">Video Başlığı</label>
+                    <input type="text" id="videoTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="videoUrl">Instagram Video Linki</label>
+                    <input type="url" id="videoUrl" placeholder="https://www.instagram.com/..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="videoCover">Kapak Resmi URL'i</label>
+                    <input type="url" id="videoCover" placeholder="https://...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="videoTags">Taglar (virgülle ayırın)</label>
+                    <input type="text" id="videoTags" placeholder="komedi, eğlence, viral">
+                </div>
+                
+                <div class="form-group">
+                    <label for="videoDescription">Açıklama (opsiyonel)</label>
+                    <textarea id="videoDescription" rows="3"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="btn-secondary">İptal</button>
+                    <button type="submit" class="btn-primary">Video Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Video Detay Modal -->
+    <div id="videoDetailModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="detailTitle">Video Detayı</h2>
+                <button id="closeDetailModal" class="close-btn">&times;</button>
+            </div>
+            <div class="video-detail">
+                <img id="detailCover" class="detail-cover" alt="Video kapağı">
+                <div class="detail-info">
+                    <p id="detailDescription"></p>
+                    <div id="detailTags" class="detail-tags"></div>
+                    <a id="detailLink" href="#" target="_blank" class="btn-primary">Instagram'da Aç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
